@@ -26,6 +26,8 @@
 
   --oddbg: rgb(33, 35, 44);
   --evenbg: rgb(43, 46, 59);
+  /* --oddbg: #151515;
+  --evenbg: #000000; */
 
   --btnTextcolor: white;
 }
@@ -33,8 +35,10 @@
 
 /* *************************************  MODE CHANGE  colors********************************** */
 .lightMode {
-  --oddbg: lightgrey;
-  --evenbg: #d7d7d7;
+  --oddbg: lightgrey; 
+   --evenbg: #d7d7d7;
+  /* --oddbg: rgb(193, 189, 189);
+  --evenbg: rgba(138, 133, 133, 0.176); */
   --btn-color: rgb(6, 111, 6);
   --white: black;
 }
@@ -197,6 +201,12 @@ nav a:hover::after {
 
 svg{
     cursor: pointer;
+}
+
+
+a{
+  text-decoration: none;
+  color: var(--white);
 }
 
 .btn{
@@ -488,17 +498,16 @@ span{
   margin-top: 3rem;
 }
 
-.projectImages img {
+/* .projectImages img {
   width: 100%;
   border-radius: 6px;
   position: relative;
   overflow: hidden;
   transform: scale(1.8);
-  /* filter: blur(0.8px); */
   transition: all 0.8s linear;
-}
+} */
 
-.projectImages img:hover{
+/* .projectImages img:hover{
   transform: scale(1);
 }
 
@@ -554,7 +563,84 @@ span{
 .imgOverlay:hover > .overlay {
   transform: translateY(0);
   opacity: 0.9;
+} */
+
+
+ 
+.box {
+  color: var(--white);
+  background-color: var(--oddbg);
+  height: 100%;
+  width: 300px;
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
 }
+
+.imgdiv {
+  overflow: hidden; 
+  border-radius: 1rem; 
+  transition: transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+.imgdiv img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* Fill the container properly */
+  transition: transform 0.8s ease; /* Smooth scaling transition */
+}
+
+.box:hover .imgdiv img {
+  transform: scale(1.2); /* Scale image on hover */
+}
+
+.data p {
+  margin: 0;
+  margin-top: 6px;
+  /* text-align: justify; */
+}
+
+.data h2 {
+  margin: 0;
+  margin-top: 6px;
+}
+
+.proj_skill {
+  margin-top: 6px;
+  width:fit-content;
+  height: 25px;
+  background-color: var(--evenbg);
+  display: flex;
+  justify-content: center;
+  padding-inline: 0.6rem;
+  column-gap: 0.6rem;
+  margin-bottom: 10px;
+  border-radius: 2rem;
+}
+
+
+.proj_skill img{
+  width: 0.95rem;
+  transition: transform 0.3s;
+}
+
+.proj_skill img:hover{
+  transform: translateY(-0.5rem);
+}
+
+/* .proj_skill img:nth-child(even){
+  padding: 0 10px;
+} */
+
+/* .visit {
+  margin-top: 8px;
+} */
+
+
+.visit i , img{
+  cursor:  pointer;
+}
+
 
 /* **********************project section  end******************* */
 
@@ -739,9 +825,12 @@ input:focus,textarea:focus{
 
 /* Hide the label when the input is not focused and is valid */
 .inpText:not(:focus):valid + .textCon {
-  opacity: 0;
+  top: -10px;
+  background: transparent;
+  z-index: 1111;
+  font-size: 17px;
+  opacity: 0.8;
 }
-
 
 .Sbtn {
   background-color: var(--btn-color);

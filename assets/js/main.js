@@ -102,117 +102,129 @@ cv.addEventListener("click", () => {
 
 // ================================= For projects===========================================
 
-const projects = [
-  {
-    imgSrc: "./assets/projectImage/TTC.png",
-    altText: "my works",
-    title: "Tic Tac Toe",
-    demoLink: "https://saurabkunwar32.github.io/TicTacToe/",
-  },
-  {
-    imgSrc: "./assets/projectImage/imgF.png",
-    altText: "my works",
-    title: "Image finder",
-    demoLink: "https://saurabkunwar32.github.io/image_Finder/",
-  },
-  {
-    imgSrc: "./assets/projectImage/allcon.png",
-    altText: "my works",
-    title: "All Countries",
-    demoLink: "https://all-countryapi.netlify.app",
-  },
-  {
-    imgSrc: "./assets/projectImage/COFFEWEB.png",
-    altText: "my works",
-    title: "Coffe web",
-    demoLink: "https://mycoffeweb.netlify.app",
-  },
-  {
-    imgSrc: "./assets/projectImage/ss3.jpg",
-    altText: "my works",
-    title: "Not available",
-    demoLink: "#projectSection",
-  },
-  {
-    imgSrc: "./assets/projectImage/ss5.jpg",
-    altText: "my works",
-    title: "Not available",
-    demoLink: "#projectSection",
-  },
-];
+let projects = [];
 
-const projectContainer = document.querySelector(".projectImages");
+fetch("/assets/JSON/project.json")
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    return res.json();
+  })
+  .then((data) => {
+    projects = data;
+    DisplayProjects(projects);
+    ScrollReveal().reveal(".projectImages .box", {
+      origin: "bottom",
+      interval: 100,
+      delay: 100,
+    });
+  })
+  .catch((error) => {
+    console.error("Error fetching JSON:", error);
+  });
 
-projects.forEach((project) => {
-  const projectDiv = document.createElement("div");
+function DisplayProjects(projects) {
+  const projectContainer = document.querySelector(".projectImages");
 
-  projectDiv.className = "imgOverlay";
+  projects.forEach((project) => {
+    const projectDiv = document.createElement("div");
+    projectDiv.classList.add("box");
 
-  projectDiv.innerHTML = `
-   <img src="${project.imgSrc}" alt="${project.altText}" />
-      <div class="overlay">
-      <p>${project.title}</p>
-    <a href="${project.demoLink}">View Demo <i class="fa-regular fa-pen-to-square"></i></a>
-    </div> `;
+    // Populate the inner content of the div
+    projectDiv.innerHTML = `
+            <div class="imgdiv">
+              <img
+                src="${project.imgSrc}"
+                alt="${project.altText}"
+              />
+            </div>
+            <div class="data">
+              <h2>${project.title}</h2>
+              <p>${project.info}</p>
+            </div>
+            <div class="proj_skill">
+            </div>
+            <div class="visit">
+              <a href="${project.demoLink}" target='_blank'>
+                <i class="fa-solid fa-link"></i>&nbsp;Visit
+              </a>
+            </div>
+      `;
 
-  projectContainer.append(projectDiv);
-});
+    // Add skills dynamically
+    const projSkillContainer = projectDiv.querySelector(".proj_skill");
+    if (project.skills && project.skills.length > 0) {
+      project.skills.forEach((skill) => {
+        const skillImg = document.createElement("img");
+        skillImg.src = skill.iconSrc;
+        skillImg.alt = skill.name;
+        projSkillContainer.appendChild(skillImg);
+      });
+    }else{
+      projSkillContainer.innerHTML="---"
+    }
+
+    // Append the projectDiv to the container
+    projectContainer.append(projectDiv);
+  });
+}
 
 // ================================= For Services=================================================
 
-const service = [
-  {
-    iconClass: "fa-solid fa-desktop",
-    serviceName: "Service",
-    serviceInfo:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, tempora ducimus iste cum dolore eius.",
-  },
-  {
-    iconClass: "fa-solid fa-chart-line",
-    serviceName: "Service",
-    serviceInfo:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, tempora ducimus iste cum dolore eius.",
-  },
-  {
-    iconClass: "fa-brands fa-react",
-    serviceName: "Service",
-    serviceInfo:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, tempora ducimus iste cum dolore eius.",
-  },
-  {
-    iconClass: "fa-solid fa-earth-americas",
-    serviceName: "Service",
-    serviceInfo:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, tempora ducimus iste cum dolore eius.",
-  },
-  {
-    iconClass: "fa-brands fa-webflow",
-    serviceName: "Service",
-    serviceInfo:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, tempora ducimus iste cum dolore eius.",
-  },
-  {
-    iconClass: "fa-solid fa-notes-medical",
-    serviceName: "Service",
-    serviceInfo:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, tempora ducimus iste cum dolore eius.",
-  },
-];
+// const service = [
+//   {
+//     iconClass: "fa-solid fa-desktop",
+//     serviceName: "Service",
+//     serviceInfo:
+//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, tempora ducimus iste cum dolore eius.",
+//   },
+//   {
+//     iconClass: "fa-solid fa-chart-line",
+//     serviceName: "Service",
+//     serviceInfo:
+//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, tempora ducimus iste cum dolore eius.",
+//   },
+//   {
+//     iconClass: "fa-brands fa-react",
+//     serviceName: "Service",
+//     serviceInfo:
+//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, tempora ducimus iste cum dolore eius.",
+//   },
+//   {
+//     iconClass: "fa-solid fa-earth-americas",
+//     serviceName: "Service",
+//     serviceInfo:
+//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, tempora ducimus iste cum dolore eius.",
+//   },
+//   {
+//     iconClass: "fa-brands fa-webflow",
+//     serviceName: "Service",
+//     serviceInfo:
+//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, tempora ducimus iste cum dolore eius.",
+//   },
+//   {
+//     iconClass: "fa-solid fa-notes-medical",
+//     serviceName: "Service",
+//     serviceInfo:
+//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, tempora ducimus iste cum dolore eius.",
+//   },
+// ];
 
-const serviceContainer = document.getElementById("Services");
+// const serviceContainer = document.getElementById("Services");
 
-service.forEach((serve) => {
-  const serviceDiv = document.createElement("div");
+// service.forEach((serve) => {
+//   const serviceDiv = document.createElement("div");
 
-  serviceDiv.className = "sevBOX";
-  serviceDiv.innerHTML = `
- <div class="service-card">
-    <i class="${serve.iconClass}" id="service-Box"></i>
-    <h3 class="service-Name">${serve.serviceName}</h3>
-    <p class="service-Info">${serve.serviceInfo} </p>
-    </div>`;
-  serviceContainer.append(serviceDiv);
-});
+//   serviceDiv.className = "sevBOX";
+//   serviceDiv.innerHTML = `
+//  <div class="service-card">
+//     <i class="${serve.iconClass}" id="service-Box"></i>
+//     <h3 class="service-Name">${serve.serviceName}</h3>
+//     <p class="service-Info">${serve.serviceInfo} </p>
+//     </div>`;
+//   serviceContainer.append(serviceDiv);
+// });
 
 // ************************************For animations sections*******************************************
 
@@ -241,12 +253,12 @@ ScrollReveal().reveal(".skills-grid .skill ", {
   interval: 100,
 });
 ScrollReveal().reveal(".commonP", { origin: "left" });
-ScrollReveal().reveal(".projectImages .imgOverlay", {
-  origin: "bottom",
-  interval: 100,
-  delay: 100,
-});
-ScrollReveal().reveal(".secServices .sevBOX", { origin: "top", interval: 100 });
+// ScrollReveal().reveal(".projectImages .imgOverlay", {
+//   origin: "bottom",
+//   interval: 100,
+//   delay: 100,
+// });
+// ScrollReveal().reveal(".secServices .sevBOX", { origin: "top", interval: 100 });
 ScrollReveal().reveal(".contact1", { origin: "left", interval: 100 });
 ScrollReveal().reveal(".contactMedia li", { origin: "right", interval: 100 });
 ScrollReveal().reveal(".ContactF", { origin: "left", interval: 100 });

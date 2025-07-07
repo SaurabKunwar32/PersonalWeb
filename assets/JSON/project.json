@@ -1,0 +1,104 @@
+[
+  {
+    "imgSrc": "./assets/projectImage/TTC.png",
+    "altText": "my works",
+    "title": "Tic Tac Toe",
+    "info": "A fun and interactive Tic Tac Toe game built using HTML, CSS, and JavaScript.",
+    "skills": [
+      {
+        "name": "HTML",
+        "iconSrc": "./assets/skill_logo/html-1.svg"
+      },
+      {
+        "name": "CSS",
+        "iconSrc": "./assets/skill_logo/css-3.svg"
+      },
+      {
+        "name": "JS",
+        "iconSrc": "./assets/skill_logo/javascript-1.svg"
+      }
+    ],
+    "demoLink": "https://saurabkunwar32.github.io/TicTacToe"
+  },
+  {
+    "imgSrc": "./assets/projectImage/image_finder.png",
+    "altText": "my works",
+    "title": "Image Finder",
+    "info": "An image search tool made with HTML, CSS, and JavaScript for easy browsing.",
+    "skills": [
+      {
+        "name": "CSS",
+        "iconSrc": "./assets/skill_logo/css-3.svg"
+      },
+      {
+        "name": "HTML",
+        "iconSrc": "./assets/skill_logo/html-1.svg"
+      },
+      {
+        "name": "JS",
+        "iconSrc": "./assets/skill_logo/javascript-1.svg"
+      }
+    ],
+    "demoLink": "https://saurabkunwar32.github.io/image_Finder"
+  },
+  {
+    "imgSrc": "./assets/projectImage/All_countryAPI.png",
+    "altText": "my works",
+    "title": "All Countries",
+    "info": "A React-based project displaying country data like population, area, and more.",
+    "skills": [
+      {
+        "name": "CSS",
+        "iconSrc": "./assets/skill_logo/css-3.svg"
+      },
+      {
+        "name": "HTML",
+        "iconSrc": "./assets/skill_logo/html-1.svg"
+      },
+      {
+        "name": "React",
+        "iconSrc": "./assets/skill_logo/react-2.svg"
+      },
+      {
+        "name": "JS",
+        "iconSrc": "./assets/skill_logo/javascript-1.svg"
+      }
+    ],
+    "demoLink": "https://restcountry-react.netlify.app"
+  },
+  {
+    "imgSrc": "./assets/projectImage/coffee.png",
+    "altText": "my works",
+    "title": "Coffee Web",
+    "info": "A stylish and responsive coffee shop website built using HTML, CSS, and JavaScript.",
+    "skills": [
+      {
+        "name": "CSS",
+        "iconSrc": "./assets/skill_logo/css-3.svg"
+      },
+      {
+        "name": "HTML",
+        "iconSrc": "./assets/skill_logo/html-1.svg"
+      },
+      {
+        "name": "JS",
+        "iconSrc": "./assets/skill_logo/javascript-1.svg"
+      }
+    ],
+    "demoLink": "https://simple-coffeeweb.netlify.app"
+  },
+  {
+    "imgSrc": "./assets/projectImage/ss3.jpg",
+    "altText": "my works",
+    "title": "Not Available",
+    "info": "A placeholder project displaying the use of CSS, HTML, and React for future updates.",
+    "demoLink": "#projectSection"
+  },
+  {
+    "imgSrc": "./assets/projectImage/ss3.jpg",
+    "altText": "my works",
+    "title": "Not Available",
+    "info": "A future placeholder project for showcasing web development with React and CSS.",
+    "demoLink": "#projectSection"
+  }
+]

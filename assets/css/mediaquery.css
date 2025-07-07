@@ -50,6 +50,10 @@
   .container {
     max-width: 50rem;
   }
+
+  .projectImages .box {
+    width: 234px;
+  }
 }
 
 /* **********************************menu meida ******************************************* */
@@ -205,13 +209,6 @@
     width: 100%;
   }
 
-  .projectSection h1,
-  .secServices h1,
-  .sec-contact h1 {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
   .social-list li:hover {
     transform: scale(0);
     transition: none;
@@ -242,6 +239,10 @@
   .downloadCV {
     padding-left: 0;
   }
+
+  .projectImages .box {
+    width: 300px;
+  }
 }
 /* **********************************menu meida end ******************************************* */
 
@@ -254,6 +255,22 @@
 
   .para {
     padding: 0 2rem;
+  }
+}
+
+@media (max-width: 782px) {
+  .projectImages .box {
+    width: 234px;
+  }
+}
+
+@media (max-width: 642px) {
+  .projectImages .box {
+    width: 225px;
+  }
+
+  .projectSection .grid {
+    gap: 1rem;
   }
 }
 
@@ -315,6 +332,11 @@
     margin: 0.5rem;
     text-align: left;
   }
+
+  .projectImages .box {
+    width: 100%;
+  }
+
 }
 
 /* ************************************** for 490 px*********************************************/
@@ -378,16 +400,14 @@
     padding: 1rem 0;
   }
 
-  .about {
-    background-color: red;
-  }
+ 
 }
 
 @media (max-width: 268px) {
   .Mname {
     font-size: 1.4rem;
   }
- 
+
   .mainFoot h1 {
     text-align: center;
   }
